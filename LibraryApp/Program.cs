@@ -37,8 +37,8 @@ namespace LibraryApp
             List<Book> bookList = new List<Book>();
             foreach (string s in readText)
             {
-                string[] catagory = s.Split('<');
-                bookList.Add(new Book(catagory[0], catagory[1], catagory[2], catagory[3]));
+                string[] StringArrayOFEachLine = s.Split('<');
+                bookList.Add(new Book(StringArrayOFEachLine[0], StringArrayOFEachLine[1], StringArrayOFEachLine[2], StringArrayOFEachLine[3]));
             }
             return bookList;
         }
@@ -288,7 +288,7 @@ namespace LibraryApp
             }
             else
             {
-                Console.WriteLine("Thank you for returning your book on time!");
+                Console.WriteLine($"Thank you for returning your book {book.Title} by {book.Author} on time!");
             }
         }
 
@@ -303,8 +303,6 @@ namespace LibraryApp
                 if (userChoice == book.Title && book.Status == "out")
                 {
                     CheckIfOverdue(book);
-                    
-                    Console.WriteLine($"Thank you for returnin {book.Title} by {book.Author}");
                     book.Status = "Availible";
                     book.DueDate = DateTime.Now.ToString("yyyy-MM-dd");
                 }
