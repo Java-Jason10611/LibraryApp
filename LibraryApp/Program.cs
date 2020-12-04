@@ -284,7 +284,7 @@ namespace LibraryApp
 
             if (DateTime.Now > dueDate)
             {
-                Console.WriteLine("Your book is overdue! FOR SHAME!");
+                Console.WriteLine($"Your book is {book.Title} by {book.Author} overdue! FOR SHAME!");
             }
             else
             {
